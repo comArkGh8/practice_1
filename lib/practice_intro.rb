@@ -3,15 +3,26 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  arr.sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  arr.max(2).sum
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  # get length of array
+  length = arr.size
+  # go through each pair
+  for i in 0..length-1
+    for j in i+1..length-1
+      # for each pair check sum
+      if arr[i] + arr[j] == n
+        return true
+      end
+    end
+  end
+  return false
 end
 
 # Part 2
@@ -33,3 +44,5 @@ end
 class BookInStock
 # YOUR CODE HERE
 end
+
+puts sum_to_n?([2,3,4,6], 100)
