@@ -67,7 +67,48 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+
+  attr_reader :isbn,:price
+
+  def check_rep
+    raise ArgumentError.new("not a valid price") if price<=0
+    raise ArgumentError.new("not a valid isbn") if isbn.length==0
+  end
+  
+  def initialize(isbn, price)
+    @isbn = isbn
+    @price = price
+    raise ArgumentError.new("not a valid price") if price<=0
+    raise ArgumentError.new("not a valid isbn") if isbn.length==0
+  end
+  
+  def isbn=(isbn)
+    raise ArgumentError.new("not a valid isbn") if isbn.length==0
+    @isbn=isbn
+  end
+  
+  def price=(price)
+    raise ArgumentError.new("not a valid price") if price<0
+    @price=price
+  end
+  
+  if @price.to_f < 0
+    raise ArgumentError
+  end
+  
+  def price_as_string
+    "$" + '%.2f' % @price
+  end
 end
+
+
+book1 = BookInStock.new("we3", 45.2)
+book1.isbn = "34f"
+book1.price= 45.235
+puts book1.price
+puts book1.price_as_string
+
+
+
 
 
