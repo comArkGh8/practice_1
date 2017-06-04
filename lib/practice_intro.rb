@@ -21,7 +21,12 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  #change to lower case
+  first_letter = s.downcase[0]
+  if first_letter =~ /[aeiou]/
+    return false
+  end
+  true
 end
 
 def binary_multiple_of_4? s
@@ -34,4 +39,4 @@ class BookInStock
 # YOUR CODE HERE
 end
 
-
+puts starts_with_consonant?('Saul')
