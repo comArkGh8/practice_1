@@ -34,14 +34,14 @@ class BookInStock
   attr_reader :isbn,:price
 
   def check_rep
-    raise ArgumentError.new("not a valid price") if price<0
+    raise ArgumentError.new("not a valid price") if price<=0
     raise ArgumentError.new("not a valid isbn") if isbn.length==0
   end
   
   def initialize(isbn, price)
     @isbn = isbn
     @price = price
-    raise ArgumentError.new("not a valid price") if price<0
+    raise ArgumentError.new("not a valid price") if price<=0
     raise ArgumentError.new("not a valid isbn") if isbn.length==0
   end
   
